@@ -14,9 +14,10 @@
 ```
 
 차이를 찾아봤는데
+
 |const|final|
 | :-: | :-: |
 |런타임시에 정해진 값을 바꿀 수 없음|final은 런타임 이후라도 한번 정해진 값을 바꿀 수 없음|
 |const는 const 타입 값만 줄 수 있음|모든 타입 값 가능|
 
-[Dart2 훑어보기](https://brunch.co.kr/@genkino/118)
+참고 링크:[Dart2 훑어보기](https://brunch.co.kr/@genkino/118)
