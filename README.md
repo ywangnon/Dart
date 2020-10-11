@@ -27,10 +27,19 @@
 |         [함수 형태](./Function/Form.md)          |          |
 | [함수와 메서드](./Function/FunctionAndMethod.md) |          |
 |   [익명 함수](./Function/AnonymousFunction.md)   |          |
-|                                                  |          |
-|                                                  |          |
-|                                                  |          |
-|                                                  |          |
-|                                                  |          |
-|                                                  |          |
+|             [람다](./Fuction/Lamda)              |          |
+|      [선택적 파라미터](./Fuction/Parameter)      |          |
+
+
+
+## 분기와 반복
+
+
+
+|                      Class                      | Practice |
+| :---------------------------------------------: | :------: |
+|     [If else](./QUARTER_REPETITION/if_else)     |          |
+|     [samhang](./QUARTER_REPETITION/samhang)     |          |
+| [switch_case](./QUARTER_REPETITION/switch_case) |          |
+|         [for](./QUARTER_REPETITION/for)         |          |
 
