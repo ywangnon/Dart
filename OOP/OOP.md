@@ -160,3 +160,109 @@ class Rectangle {
 
 
 
+## 상속
+
+
+
+- 슈퍼클래스: 상속을 주는 쪽
+- 서브클래스: 받는 쪽
+- 슈퍼클래스를 그대로 복사한 후 기능 추가나 변경이 첨가
+
+
+
+```dart
+class Hero {
+  String name = '영웅';
+ 
+  void run() {}
+}
+
+class SuperHero extends Hero { // Hero를 상속
+  // 오버라이드 - 재정의
+  @override
+  void run() {
+    super.run(); 	// 슈퍼클래스의 run() 실행
+    this.fly();		// SuperHero의 fly() 실행
+  }
+  
+  void fly() {}
+}
+
+void main() {
+  var hero = SuperHero();
+  hero.run();
+  hero.fly();
+  print(hero.name);	// 영웅
+}
+```
+
+
+
+## 추상클래스
+
+
+
+- 추상메서드를 포함하는 클래스
+- 추상메서드: 선언만 되고 정의가 없는 메서드
+- 다른 클래스에 implements하여 기능을 완성하는 상속 재료로 사용
+- 클래스는 implements 키워드, 메서드에는 @override 키워드 사용
+- 한 번에 여러 추상 클래스 임플리먼트 가능. 구현시에는 모든 추상 메서드 재구현 해야함
+
+
+
+```dart
+abstract class Monster {
+  void attack();
+}
+
+abstract class Flyable {
+  void fly();
+}
+
+class Goblin implements Monster {
+  @override
+  void attack() {
+    print('고블린 어택');
+  }
+}
+
+class Bat implements Monster, Flyable {
+  @override
+  void attack() {
+    print('할퀴기!');
+  }
+  
+  @override
+  void fly() {
+    print('펄럭펄럭');
+  }
+}
+```
+
+
+
+## 믹스인
+
+
+
+- with 키워드 사용
+- 상속하지 않고 다른 클래스의 기능을 가져오거나 오버라이드 가능
+
+
+
+```dart
+class Goblin implements Monster {
+  @override
+  void attack() {
+    print('고블린 어택');
+  }
+}
+
+class DarkGoblin extends Goblin with Hero {
+  
+}
+```
+
+
+
+! 혼란스러운 부분인데, 재구현이 없는 상속으로 보는 것이 맞나? 찾아보니 고정된 상속이라고 보는 것이 맞을지도? 믹스인에서 구현된 메소드들은 재구현이 불가능하고 그대로 사용한다. 다중으로 믹스인 가능하지만 같은 메소드명은 마지막에 선언된 것으로 사용된다. 코드의 간편한 재사용을 위한 문법인듯하다.
