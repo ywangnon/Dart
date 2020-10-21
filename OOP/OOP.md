@@ -6,6 +6,10 @@
 
 
 
+[toc]
+
+
+
 ## 클래스
 
 
@@ -266,3 +270,153 @@ class DarkGoblin extends Goblin with Hero {
 
 
 ! 혼란스러운 부분인데, 재구현이 없는 상속으로 보는 것이 맞나? 찾아보니 고정된 상속이라고 보는 것이 맞을지도? 믹스인에서 구현된 메소드들은 재구현이 불가능하고 그대로 사용한다. 다중으로 믹스인 가능하지만 같은 메소드명은 마지막에 선언된 것으로 사용된다. 코드의 간편한 재사용을 위한 문법인듯하다.
+
+
+
+## 열거 타입
+
+
+
+- 상수를 정의하는 특수 형태의 클래스
+- 상수처럼 사용 가능
+- switch 문 사용시 모든 상수를 case로 검토 강제.
+
+
+
+```dart
+enum Status { login, logout }
+
+switch(authStatus) {
+  case Status.login:
+    print('로그인');
+    break;
+  case Status.logout:
+    print('로그아웃');
+    break;
+}
+```
+
+
+
+## 컬렉션
+
+
+
+- List: 같은 타입의 자료를 여러 개 담을 수 있고, 특정 인덱스로 접근 가능
+- Map: 키와 값의 쌍으로 저장, 키를 통해 값 읽는 것이 가능
+- Set: 중복을 허용하지 않고, 찾는 갓ㅂ이 있는지 없는지 판단하고자 할 때 사용
+
+
+
+### Map
+
+- 순서가 있는 컬렉션
+- 인덱스는 0부터 시작
+- 다트는 배열을 제공하지 않음
+
+
+
+```dart
+List<String> items = ['짜장', '라면', '볶음밥']; // var items = ['짜장', '라면', '볶음밥'];
+  
+items[0] = '떡볶이';	
+print(items.length);
+print(items[2]);
+print(items[3]);	// 에러!
+
+for (var i = 0;i < items.length;i++) {
+  print(items[i]);
+}
+```
+
+
+
+! dynamic
+
+모든 타입을 나타내는 dynamic
+
+```dart
+List<dynamic> list = [1,2,4,'헬로']
+```
+
+
+
+### ...
+
+
+
+- 컬렉션을 펼쳐주는 연산자
+
+
+
+```dart
+var items = ['짜장', '라면', '볶음밥'];
+
+var items = ['떡볶이', ...items, '순대']; // 떡볶이, 짜장, 라면, 볶음밥, 순대
+```
+
+
+
+### Map
+
+
+
+- 순서 없음
+- 빠른 탐색 가능
+- 키와 값의 쌍으로 구성됨
+- 키에 대한 값이 없으면 null 반환
+
+
+
+```dart
+// Map<String, String> citiMap 과 같음
+var cityMap = {
+  '한국':'부산',
+  '일본':'도쿄',
+  '중국':'북경'
+};
+
+cityMap['한국'] = '서울';
+
+print(cityMap.length);	// 3
+print(cityMap['중국']);	// 북경
+print(cityMap['미국']);	// null
+
+cityMap['미국'] = '워싱턴';	// 추가
+print(cityMap['미국']);	// 워싱턴
+```
+
+
+
+### Set
+
+
+
+- add(): 추가
+- remove(): 삭제
+- contains(): 자료가 있는지 확인
+- 중복 안됨
+- 집합에 요소가 있는지 검사할 때 사용
+
+
+
+```dart
+var citySet = {'서울', '수원', '오산', '부산'};
+
+citySet.add('안양');
+citySet.remove('수원');
+
+print(citySet.contains('서울'));	// true
+print(citySet.contains('도쿄'));	// false
+```
+
+
+
+주의
+
+```dart
+var mySet = <String>{}; // Set<String>
+
+var mySet = {}; // Map<dynamic, dynamic>
+```
+
