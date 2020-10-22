@@ -43,3 +43,18 @@
 | [switch_case](./QUARTER_REPETITION/switch_case) |          |
 |         [for](./QUARTER_REPETITION/for)         |          |
 
+
+
+## 객체지향프로그래밍
+
+
+
+[OOP](./OOP/OOP)
+
+
+
+## 함수형 프로그래밍
+
+
+
+[함수형 프로그래밍](./FunctionalProgramming/FunctionalProgramming)
